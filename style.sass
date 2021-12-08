@@ -3,17 +3,21 @@ $col : #222327
 	margin: 0
 	padding: 0
 	box-sizing: border-box
-body 
-	display: flex
-	flex-direction: column
-	justify-content: center
-	align-items: center
-	height: 100vh
+body
 	background: $col
-	h1 
+	scroll-behavior: smooth
+	h1
+		transform: translateY(70px)
 		color: white
 		font: 4rem sans-serif
 		margin-bottom: 1em
+.nav
+	position: fixed
+	display: flex			
+	justify-content: flex-end
+	align-items: center
+	width: 100vw
+	background: #fff
 	.navigation
 		position: relative
 		width: 400px
@@ -23,6 +27,7 @@ body
 		justify-content: center
 		align-items: center
 		border-radius: 10px
+		z-index: 1
 		ul 
 			display: flex
 			width: 350px
@@ -31,14 +36,14 @@ body
 				list-style: none
 				width: 70px
 				height: 70px
-				z-index: 1
+				z-index: 3
 				&.active
 					a 
 						.icon
-							transform: translateY(-35px)
+							transform: translateY(35px)
 						.text
 							opacity: 1
-							transform: translateY(10px)
+							transform: translateY(-10px)
 				a 
 					position: relative
 					display: flex
@@ -48,6 +53,8 @@ body
 					width: 100%
 					text-align: center
 					font-weight: 600
+					z-index: 5
+					cursor: pointer
 					.icon
 						position: relative
 						display: block
@@ -62,38 +69,33 @@ body
 						font-weight: 600
 						font-size: .75rem	
 						letter-spacing: .05em
-						transform: translateY(20px)
+						transform: translateY(-20px)
 						opacity: 0
 						transition: .5s
 .indicator
 	position: absolute
-	top: -50%
+	top: 50%
 	width: 70px
 	height: 70px
 	background: #29fd53
 	border-radius: 50%
 	border: 6px solid $col
 	transition: .5s
+	z-index: 2
+	&::before, &::after
+		content: ''
+		position: absolute
+		bottom: 50%
+		width: 20px
+		height: 20px
+		background: transparent
+		box-shadow: 0px 10px 0 0 $col
 	&::before
-		content: ''
-		position: absolute
-		top: 50%
 		left: -22px
-		width: 20px
-		height: 20px
-		background: transparent
-		border-top-right-radius: 20px
-		box-shadow: 0px -10px 0 0 $col
+		border-bottom-right-radius: 20px
 	&::after
-		content: ''
-		position: absolute
-		top: 50%
 		right: -22px
-		width: 20px
-		height: 20px
-		background: transparent
-		border-top-left-radius: 20px
-		box-shadow: 0px -10px 0 0 $col
+		border-bottom-left-radius: 20px
 
 .navigation ul li:nth-child(1).active ~ .indicator
 	transform: translateX(calc(70px * 0)) 
@@ -105,3 +107,10 @@ body
 	transform: translateX(calc(70px * 3)) 
 .navigation ul li:nth-child(5).active ~ .indicator
 	transform: translateX(calc(70px * 4)) 
+
+#profile
+	height: 120vh
+#message
+	height: 120vh
+#photos
+	height: 120vh
