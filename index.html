@@ -35,7 +35,7 @@
 	</div>
 	<div id="profile">
 		<h1>PROFILE</h1>
-		<button class="btn" data-photoid="count" data-like="1"><span class="likeAmmount"></span>
+		<button class="btn" data-photoid="profile" data-like="1"><span class="likeAmmount"></span>
 			<ion-icon name="heart"></ion-icon> LIKES
 		</button>
 	</div>
@@ -45,6 +45,9 @@
 	</div>
 	<div id="photos">
 		<h1>PHOTOS</h1>
+		<button class="btn" data-photoid="photo" data-like="1"><span class="likeAmmount"></span>
+			<ion-icon name="heart"></ion-icon> LIKES
+		</button>
 	</div>
 	<script>
 		const btns = document.querySelector('.btn');
@@ -65,7 +68,7 @@
 		function likeCount() {
 			var likeAdd = this.dataset.like++;
 			likeAmmout.innerHTML = likeAdd;
-			document.cookie = btns.dataset.photoid + "=" + likeAdd;
+			document.cookie = this.dataset.photoid + "=" + likeAdd;
 		}
 		function activeLink() {
 			list.forEach((item) =>
