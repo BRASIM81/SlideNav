@@ -120,10 +120,12 @@ body
 .navigation ul li:nth-child(5).active ~ .indicator
 	transform: translateX(calc(70px * 4)) 
 @mixin header		
+	position: relative
 	padding: 15vh 1rem
 	display: flex
 	align-items: center
 	justify-content: center 
+	flex-direction: column
 	background-color: $clr
 	background-blend-mode: soft-light
 	background-repeat: no-repeat
@@ -136,9 +138,26 @@ body
 #profile
 	@include header
 	background-image: url('https://source.unsplash.com/1200x800?people')
+	button 
+		position: absolute
+		bottom: 15px
+		left: 15px
+		font: 1em $font
+		padding: .5em 1.5em
+		letter-spacing: .2em
+		border-radius: .5em
+		border: 0
+		outline: 0
+		ion-icon, .likeAmmount
+			color: red !important
+			padding: 0
+			margin: 0 -5px
 #message
 	@include header
 	background-image: url('https://source.unsplash.com/1200x800?nature')
 #photos
 	@include header
 	background-image: url('https://source.unsplash.com/1200x800?fun')
+#header 
+	color: #fff
+	font: 4em $font	
